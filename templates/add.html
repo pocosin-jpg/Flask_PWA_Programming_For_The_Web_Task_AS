@@ -1,20 +1,18 @@
-{% extends 'layout.html' %}
-{% block content %}
+{% extends 'layout.html' %} {% block content %}
 <h1>Add a student here</h1>
 {% if is_done %}
-<h2>Thank you for adding a student!</h2>>
+<h2>Thank you for adding a student!</h2>
 {% else %}
 <form action="/add.html" method="POST" class="box">
-<label>First Name</label>
-<input name="firstname" type="text" id="firstname" required>
-<br>
-<label>Last Name</label>
-<input name="lastname" type="text" id="lastname" required>
-<br>
-<label>DOB</label>
-<input name="dob" type="text" id="dob" required>
-<br>
-<button type="submit" class="btn">Submit</button>
-</form
-    {% endif %}
-{% endblock %}
+  <label>First Name</label>
+  <input name="firstname" type="text" id="firstname" required />
+  <br />
+  <label>Last Name</label>
+  <input name="lastname" type="text" id="lastname" required />
+  <br />
+  <label>DOB</label>
+  <input name="dob" type="text" id="dob" required />
+  <br />
+  <button type="submit" class="btn">Submit</button>
+</form>
+{% endif %} {% endblock %}
