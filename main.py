@@ -19,7 +19,9 @@ def add():
         lastname = request.form["lastname"]
         dob = request.form["dob"]
         dbHandler.insertStudent(firstname, lastname, dob)
-        return render_template("/add.html", message="Thank you for adding a student.")
+        return render_template(
+            "/add.html", message="Thank you for adding a student."
+        )  # noqa: E501
     else:
         return render_template("/add.html")
 
@@ -29,7 +31,9 @@ def students():
     if request.method == "POST":
         id = request.form["id"]
         dbHandler.deleteStudent(id)
-    return render_template("/students.html", studentList=dbHandler.listStudents())
+    return render_template(
+        "/students.html", studentList=dbHandler.listStudents()
+    )  # noqa: E501
 
 
 if __name__ == "__main__":
