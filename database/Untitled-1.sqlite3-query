@@ -1,0 +1,14 @@
+-- database: ./data_source.db
+
+SELECT * FROM contact_list;
+
+CREATE TABLE Students(id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT NOT NULL, lastname TEXT NOT NULL, dob TEXT NOT NULL);
+
+INSERT INTO Students(firstname, lastname, dob) VALUES ('Jackie', 'Maldon', '26/11/2007');
+
+INSERT INTO Students(firstname, lastname, dob) VALUES ('Harry', 'Dubenec', '20/12/2007'), ('Leo', 'Ma', '15/03/2008'), ('Amelie', 'Sim', '25/10/2007'), ('Harrison', 'Carr', '24/08/2005'), ('Jessica', 'Langley', '09/08/2007');
+
+
+SELECT * FROM Students;
+
+SELECT firstname FROM Students WHERE firstname = 'Harry';

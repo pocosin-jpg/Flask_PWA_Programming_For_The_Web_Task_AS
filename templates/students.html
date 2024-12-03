@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Class</title>
+  </head>
+  <body>
+    {% extends 'layout.html' %} {% block content %}
+    <h1>Software Students</h1>
+    <p>Here are the students in the software engineering class.</p>
+    <table border="1">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>DOB</th><th>Delete?</th>
+{% for person in studentList %}
+</tr>
+<tr>
+<td>{{person[1]}}</td>
+<td>{{person[2]}}</td>
+<td>{{person[3]}}</td>
+<td>
+<form action="/students.html" method="post">
+<input type="hidden" name="id" value="{{person[0]}}">
+<button type="submit">Delete</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+  </body>
+</html>
