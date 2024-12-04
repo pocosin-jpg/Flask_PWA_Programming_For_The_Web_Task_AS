@@ -11,4 +11,13 @@ INSERT INTO Students(firstname, lastname, dob) VALUES ('Harry', 'Dubenec', '20/1
 
 SELECT * FROM Students;
 
-SELECT firstname FROM Students WHERE firstname = 'Harry';
+CREATE TABLE StudentMarks(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, studentId TEXT NOT NULL, subject TEXT NOT NULL, mark TEXT NOT NULL);
+
+INSERT INTO StudentMarks(studentID, subject, mark) VALUES ('1', 'English', '50'), ('1', 'Maths', '100'), ('2', 'English', '67'), ('2', 'Science', '80'), ('3', 'English', '24'), ('4', 'English', '97');
+
+
+SELECT * FROM StudentMarks;
+
+SELECT * FROM StudentMarks WHERE StudentId = '2';
+
+SELECT * FROM StudentMarks WHERE subject = 'English' ORDER BY mark ASC;

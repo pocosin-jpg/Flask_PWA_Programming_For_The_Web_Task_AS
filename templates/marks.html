@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Class</title>
+
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 20px;
+        background-color: antiquewhite;
+        padding-left: 60px;
+      }
+
+      h1 {
+        color: darkblue;
+        font-size: 50px;
+      }
+
+      p {
+        color: darkblue;
+      }
+    </style>
+  </head>
+  <body>
+    {% extends 'layout.html' %} {% block content %}
+    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif">
+      Student Marks
+    </h1>
+    <p>Here are the marks for the students</p>
+
+    <!--this is the table in whichi I store the student mark data-->
+    <table border="1">
+      <thead>
+        <tr>
+          <th>StudentId</th>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Delete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for person in studentMarksList %}
+        <tr>
+          <td>{{person[1]}}</td>
+          <td>{{person[2]}}</td>
+          <td>{{person[3]}}</td>
+          <td>
+            <!--this is the code for the delete button-->
+            <form action="/marks.html" method="post">
+              <input type="hidden" name="id" value="{{person[0]}}" />
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+  </body>
+</html>

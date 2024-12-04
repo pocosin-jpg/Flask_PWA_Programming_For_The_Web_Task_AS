@@ -36,5 +36,29 @@ def students():
     )  # noqa: E501
 
 
+@app.route("/marks.html", methods=["POST", "GET"])
+def studentMarks():
+    if request.method == "POST":
+        id = request.form["id"]
+        dbHandler.deleteStudentMark(id)
+    return render_template(
+        "/marks.html", studentMarksList=dbHandler.listStudentMarks()
+    )  # noqa: E501
+
+
+@app.route("/addMark.html", methods=["POST", "GET"])
+def addMark():
+    if request.method == "POST":
+        StudentId = request.form["StudentId"]
+        Subject = request.form["Subject"]
+        Mark = request.form["Mark"]
+        dbHandler.insertStudentMark(StudentId, Subject, Mark)
+        return render_template(
+            "/addMark.html", message="Thank you for adding a student's mark."
+        )  # noqa: E501
+    else:
+        return render_template("/addMark.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
